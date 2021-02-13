@@ -1,0 +1,30 @@
+<apex:component>
+    <apex:attribute name = 'contact' type = 'Contact' required="true"
+        description="relatedContact"
+    />
+    <tr>
+        <td>
+            <div class="slds-truncate" title="First Name">{!contact.FirstName}</div>
+        </td>
+        <td>
+            <div class="slds-truncate" title="Last Name">{!contact.LastName}</div>
+       </td>
+       <td>
+            <div class="slds-truncate" title="Email">{!contact.Email}</div>
+        </td>
+        <td>
+            <apex:outputPanel rendered="{!if(contact.Account == null, false, true)}">  
+				<apex:outputLink value="/{!contact.Account.Id}">{!Contact.Account.Name}</apex:outputLink>
+			</apex:outputPanel>	
+        </td>
+        <td>
+            <div class="slds-truncate" title="Mobile Phone">{!contact.MobilePhone}</div>
+        </td>
+        <td>
+            <apex:outputText value="{0, date, MM/DD/yyyy hh:mm a}">
+                <apex:param value="{!contact.CreatedDate}" />
+            </apex:outputText>
+        </td>
+    </tr>
+    
+</apex:component>

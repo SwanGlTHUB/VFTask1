@@ -1,0 +1,35 @@
+<apex:page controller = 'VFTask1Controller'>
+    <apex:form>
+        <apex:inputText value = '{!searchName}'></apex:inputText>
+        <apex:commandButton value = 'Filter' action = '{!getContacts}'></apex:commandButton>
+    </apex:form>
+    <table class="slds-table" >
+        <thead>
+            <tr class="slds-text-title_caps">
+                <th>
+                    <div class="slds-truncate" title="First Name">First Name</div>
+                </th>
+                <th>
+                    <div class="slds-truncate" title="Last Name">Last Name</div>
+                </th>
+                <th>
+                    <div class="slds-truncate" title="Email">Email</div>
+                </th>
+                <th>
+                    <div class="slds-truncate" title="Account">Account</div>
+                </th>
+                <th>
+                    <div class="slds-truncate" title="Mobile Phone">Mobile Phone</div>
+                </th>
+                <th>
+                    <div class="slds-truncate" title="Created Date">Created Date</div>
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <apex:repeat value="{!contactsToDisplay}" var="contact">
+                <c:tableContent1VF contact = '{!contact}'></c:tableContent1VF>
+            </apex:repeat>
+        </tbody>
+    </table>
+</apex:page>
